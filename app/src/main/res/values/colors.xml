@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#D3D3D3</color>
+    <color name="darkRed">#740938</color>
+    <color name="coksu">#D9C4B0</color>
+
+    <!-- Warna status detak jantung -->
+    <color name="slow_color">#FFC400</color>        <!-- Lambat <60bpm (Oranye) -->
+    <color name="normal_color">#089320</color>      <!-- Normal 60-100bpm (Hijau) -->
+    <color name="fast_color">#CC2B31</color>        <!-- Cepat >100bpm(Merah) -->
+</resources>

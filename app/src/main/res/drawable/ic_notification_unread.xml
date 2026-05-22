@@ -1,0 +1,29 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Ikon lonceng -->
+    <item>
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24"
+            android:autoMirrored="true">
+            <path
+                android:pathData="M12,2a7,7 0,0 0,-7 7v3.528a1,1 0,0 1,-0.105 0.447l-1.717,3.433A1.1,1.1 0,0 0,4.162 18h15.676a1.1,1.1 0,0 0,0.984 -1.592l-1.716,-3.433a1,1 0,0 1,-0.106 -0.447V9a7,7 0,0 0,-7 -7m0,19a3,3 0,0 1,-2.83 -2h5.66A3,3 0,0 1,12 21"
+                android:fillColor="#FFFFFFFF"/>
+        </vector>
+    </item>
+
+    <!-- Titik notifikasi emas kecil di pojok kanan atas -->
+    <item
+        android:left="13dp"
+        android:right="3dp"
+        android:top="0dp"
+        android:bottom="16dp">
+        <shape android:shape="oval">
+            <solid android:color="#FF0000" />
+            <size android:width="3dp" android:height="3dp" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "137515733564",
+    "firebase_url": "https://detakku-ff011-default-rtdb.firebaseio.com",
+    "project_id": "detakku-ff011",
+    "storage_bucket": "detakku-ff011.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137515733564:android:24971f322ad1ee99a8e939",
+        "android_client_info": {
+          "package_name": "com.raihani.detakku"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALMydyZe-FBNGPV29XrO2UCZYgrvVZh7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
