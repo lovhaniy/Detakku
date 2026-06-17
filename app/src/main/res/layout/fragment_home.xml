@@ -45,7 +45,7 @@
         android:id="@+id/tvGreeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Halo Sobat Detakku!"
+        android:text="Detakku!"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
@@ -75,12 +75,58 @@
             android:orientation="vertical"
             android:paddingTop="30dp">
 
-            <com.raihani.detakku.HeartRateGaugeView
-                android:id="@+id/heartRateGauge"
-                android:layout_width="280dp"
-                android:layout_height="280dp"
+            <FrameLayout
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/circularBpm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:indeterminate="false"
+                    app:indicatorSize="230dp"
+                    app:trackThickness="18dp"
+                    app:indicatorColor="#E53935"
+                    app:trackColor="#E0E0E0"
+                    app:indicatorDirectionCircular="clockwise"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/txtBpm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="72"
+                        android:textSize="48sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BPM"
+                        android:textSize="16sp"
+                        android:textColor="#757575"/>
+
+                    <TextView
+                        android:id="@+id/txtStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Normal"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
 
             <!-- Legend Heart Rate -->
             <LinearLayout
@@ -115,7 +161,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="<60 bpm"
+                        android:text="&lt;60 bpm"
                         android:textSize="14sp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
@@ -174,7 +220,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=">100 bpm"
+                        android:text="&gt;100 bpm"
                         android:textSize="14sp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
