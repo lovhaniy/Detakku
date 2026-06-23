@@ -30,7 +30,6 @@ public class HomeFragment extends Fragment {
     private TextView tvGreeting;
     private TextView tvWelcome;
 
-    private ImageView btnNotif;
 
     @Nullable
     @Override
@@ -48,7 +47,6 @@ public class HomeFragment extends Fragment {
 
         tvGreeting = view.findViewById(R.id.tvGreeting);
         tvWelcome = view.findViewById(R.id.tvWelcome);
-        btnNotif = view.findViewById(R.id.btnNotif);
 
         circularBpm = view.findViewById(R.id.circularBpm);
         txtBpm = view.findViewById(R.id.txtBpm);
@@ -98,10 +96,6 @@ public class HomeFragment extends Fragment {
 
         // Contoh BPM awal
         updateBpm(72);
-
-        btnNotif.setOnClickListener(v -> {
-            // TODO
-        });
 
         return view;
     }

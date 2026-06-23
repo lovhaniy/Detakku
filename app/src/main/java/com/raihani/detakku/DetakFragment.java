@@ -331,59 +331,18 @@ public class DetakFragment extends Fragment {
 
         paginationLayout.removeAllViews();
 
-        int totalPage =
+        int totalPages =
                 (int) Math.ceil(
-                        (double) dataFilter.size() / ITEM_PER_PAGE
+                        (double) dataFilter.size()
+                                / ITEM_PER_PAGE
                 );
 
-        // Jika hanya satu halaman, tidak perlu tampil
-        if (totalPage <= 1) {
+        if (totalPages <= 1) {
             paginationLayout.setVisibility(View.GONE);
             return;
         }
 
         paginationLayout.setVisibility(View.VISIBLE);
-
-
-        // Tombol Previous
-        tambahTombolPagination(
-                "<",
-                currentPage > 1,
-                currentPage - 1
-        );
-
-
-        // Tombol nomor halaman
-        for (int i = 1; i <= totalPage; i++) {
-
-            final int halaman = i;
-
-            tambahTombolPagination(
-                    String.valueOf(i),
-                    true,
-                    halaman
-            );
-        }
-
-
-        // Tombol Next
-        tambahTombolPagination(
-                ">",
-                currentPage < totalPage,
-                currentPage + 1
-        );
-    }
-
-    private void tambahTombolPagination(
-            String text,
-            boolean enabled,
-            int halaman
-    ) {
-
-        Button button = new Button(getContext());
-
-        button.setText(text);
-
 
         LinearLayout.LayoutParams params =
                 new LinearLayout.LayoutParams(
@@ -393,46 +352,91 @@ public class DetakFragment extends Fragment {
 
         params.setMargins(8, 0, 8, 0);
 
-        button.setLayoutParams(params);
-
-
-        button.setEnabled(enabled);
-
-
-        // Halaman aktif
-        if (text.equals(String.valueOf(currentPage))) {
-
-            button.setBackgroundColor(
-                    getResources().getColor(R.color.darkRed)
-            );
-
-            button.setTextColor(
-                    getResources().getColor(android.R.color.white)
-            );
-
-        } else {
-
-            button.setBackgroundColor(
-                    getResources().getColor(R.color.grey)
-            );
-        }
-
-
-        button.setOnClickListener(v -> {
-            if (!enabled) return;
-
-            currentPage = halaman;
-
-            tampilkanHalaman();
-
-            buatPagination();
-
-            // kembali ke atas
-            recyclerRiwayat.scrollToPosition(0);
-
+        // ====================
+        // PREVIOUS
+        // ====================
+        Button btnPrev = new Button(getContext());
+        btnPrev.setText("<");
+        btnPrev.setEnabled(currentPage > 1);
+        btnPrev.setLayoutParams(params);
+        btnPrev.setOnClickListener(v -> {
+            if (currentPage > 1) {
+                currentPage--;
+                tampilkanHalaman();
+                buatPagination();
+                recyclerRiwayat.smoothScrollToPosition(0);
+            }
         });
 
-        paginationLayout.addView(button);
+        paginationLayout.addView(btnPrev);
+
+        // ====================
+        // WINDOW HALAMAN
+        // ====================
+        int startPage = currentPage;
+        int endPage =
+                Math.min(
+                        currentPage + 1,
+                        totalPages
+                );
+        if (currentPage >= totalPages - 1) {
+            startPage =
+                    Math.max(
+                            1,
+                            totalPages - 1
+                    );
+            endPage = totalPages;
+        }
+
+        for (int i = startPage; i <= endPage; i++) {
+            Button btn = new Button(getContext());
+            btn.setText(String.valueOf(i));
+            btn.setLayoutParams(params);
+
+            if (i == currentPage) {
+                btn.setBackgroundColor(
+                        getResources().getColor(R.color.darkRed)
+                );
+                btn.setTextColor(
+                        getResources().getColor(android.R.color.white)
+                );
+
+            } else {
+                btn.setBackgroundColor(
+                        getResources().getColor(android.R.color.darker_gray)
+                );
+            }
+
+            int page = i;
+            btn.setOnClickListener(v -> {
+                currentPage = page;
+                tampilkanHalaman();
+                buatPagination();
+                recyclerRiwayat.smoothScrollToPosition(0);
+            });
+
+            paginationLayout.addView(btn);
+        }
+
+        // ====================
+        // NEXT
+        // ====================
+        Button btnNext = new Button(getContext());
+        btnNext.setText(">");
+        btnNext.setEnabled(
+                currentPage < totalPages
+        );
+        btnNext.setLayoutParams(params);
+        btnNext.setOnClickListener(v -> {
+            if (currentPage < totalPages) {
+                currentPage++;
+                tampilkanHalaman();
+                buatPagination();
+                recyclerRiwayat.smoothScrollToPosition(0);
+            }
+        });
+
+        paginationLayout.addView(btnNext);
     }
 
 }

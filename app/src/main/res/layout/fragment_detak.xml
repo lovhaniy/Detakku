@@ -41,181 +41,175 @@
             android:background="@drawable/bg_rounded_white" />
     </RelativeLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="100dp"
-        android:background="@color/white"
+        android:orientation="vertical"
         android:padding="16dp"
-        android:fillViewport="true">
+        android:background="@color/white">
 
+        <!-- Judul -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Riwayat Monitoring"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/darkRed"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Filter tanggal -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_input"
+            android:elevation="2dp">
 
-            <!-- Judul -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Riwayat Monitoring"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:text="Tanggal:"
+                android:textColor="@color/black"
+                android:textSize="10sp"
                 android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/darkRed"
-                android:layout_marginBottom="8dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_marginEnd="8dp" />
 
-            <!-- Filter tanggal -->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="12dp"
-                android:padding="10dp"
                 android:background="@drawable/bg_input"
-                android:elevation="2dp">
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="4dp"
+                android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tanggal:"
-                    android:textColor="@color/black"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_marginEnd="8dp" />
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_marginEnd="4dp" />
 
-                <LinearLayout
+                <EditText
+                    android:id="@+id/edt_start_date"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bg_input"
-                    android:paddingHorizontal="6dp"
-                    android:paddingVertical="4dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/ic_calendar"
-                        android:layout_marginEnd="4dp" />
-
-                    <EditText
-                        android:id="@+id/edt_start_date"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:hint="dd-mm-yyyy"
-                        android:background="@android:color/transparent"
-                        android:focusable="false"
-                        android:textColor="@color/black"
-                        android:inputType="none"
-                        android:textSize="10sp"
-                        android:fontFamily="@font/poppins_regular" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" - "
+                    android:hint="dd-mm-yyyy"
+                    android:background="@android:color/transparent"
+                    android:focusable="false"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginHorizontal="4dp"
+                    android:inputType="none"
+                    android:textSize="10sp"
                     android:fontFamily="@font/poppins_regular" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bg_input"
-                    android:paddingHorizontal="6dp"
-                    android:paddingVertical="4dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/ic_calendar"
-                        android:layout_marginEnd="4dp" />
-
-                    <EditText
-                        android:id="@+id/edt_end_date"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:hint="dd-mm-yyyy"
-                        android:textColor="@color/black"
-                        android:background="@android:color/transparent"
-                        android:focusable="false"
-                        android:inputType="none"
-                        android:textSize="10sp"
-                        android:fontFamily="@font/poppins_regular" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btn_filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:text="Filter"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/darkRed"
-                    android:layout_marginStart="8dp"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:paddingStart="6dp"
-                    android:paddingEnd="6dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp" />
             </LinearLayout>
 
-            <!-- Daftar riwayat detak -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerRiwayat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:clipToPadding="false"
-                android:paddingBottom="8dp"
-                android:overScrollMode="never"/>
-
             <TextView
-                android:id="@+id/txtEmpty"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tidak ada riwayat detak"
-                android:textSize="14sp"
+                android:text=" - "
                 android:textColor="@color/black"
-                android:gravity="center"
-                android:padding="20dp"
-                android:visibility="gone"
-                android:fontFamily="@font/poppins_regular"/>
+                android:textSize="14sp"
+                android:layout_marginHorizontal="4dp"
+                android:fontFamily="@font/poppins_regular" />
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fillViewport="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_horizontal"
-                android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_input"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="4dp"
+                android:gravity="center_vertical">
 
-                <LinearLayout
-                    android:id="@+id/paginationLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_gravity="center">
-                </LinearLayout>
-            </HorizontalScrollView>
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_marginEnd="4dp" />
 
+                <EditText
+                    android:id="@+id/edt_end_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="dd-mm-yyyy"
+                    android:textColor="@color/black"
+                    android:background="@android:color/transparent"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="Filter"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/darkRed"
+                android:layout_marginStart="8dp"
+                android:textSize="10sp"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp" />
         </LinearLayout>
 
-    </ScrollView>
+        <!-- Daftar riwayat detak -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerRiwayat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp"
+            android:overScrollMode="never"/>
+
+        <TextView
+            android:id="@+id/txtEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tidak ada riwayat detak"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="20dp"
+            android:visibility="gone"
+            android:fontFamily="@font/poppins_regular"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/paginationLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center">
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
 
 </RelativeLayout>
